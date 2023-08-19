@@ -1,18 +1,4 @@
-import { changeCSSTextEdited } from "./advanced";
-import {
-  changeFollowCount,
-  changeLikeCount,
-  changeReplyCount,
-  changeRetweetCount,
-} from "./hideVanityCounts";
-import hideViewCount from "./hideViewCount";
-import {
-  changeInterFont,
-  changeSearchBar1,
-  changeSearchBar2,
-  changeTitleNotifications,
-  changeTweetButton,
-} from "./interface";
+
 import {
   changeBookmarksButton,
   changeCirclesButton,
@@ -31,23 +17,9 @@ import {
   changeTwitterBlueButton,
   changeUnreadCountBadge,
 } from "./navigation";
-import {
-  changeFollowingTimeline,
-  changeLatestTweets,
-  changePromotedPosts,
-  changeRecentMedia,
-  changeStickyHeader,
-  changeTimelineBorders,
-  changeTimelineTabs,
-  changeTimelineWidth,
-  changeTopicsToFollow,
-  changeTrendsHomeTimeline,
-  changeTweetBorders,
-  changeWhoToFollow,
-  removeTweetFormatting,
-} from "./timeline";
+
 import { changeGrowButton, changeTypefullyComposerButtons } from "./typefully";
-import { changeWriterMode } from "./writer-mode";
+
 
 // Array of user preferences, passed to `injectAllChanges`
 export const userPreferences = [
@@ -96,10 +68,10 @@ export const userPreferences = [
 ];
 
 export const injectAllChanges = (data) => {
-  changeTimelineWidth(data?.timelineWidth); // Timeline Width
+  /* changeTimelineWidth(data?.timelineWidth); // Timeline Width
   changeTimelineBorders(data?.timelineBorders); // Timeline Borders
   changeTweetBorders(data?.tweetBorders); // Timeline Borders
-  changeStickyHeader(data?.stickyHeader); // Sticky Header
+  changeStickyHeader(data?.stickyHeader); // Sticky Header */
   changeHomeButton(data?.homeButton); // Home Button
   changeExploreButton(data?.exploreButton); // Explore Button
   changeNotificationsButton(data?.notificationsButton); // Notification Button
@@ -114,9 +86,9 @@ export const injectAllChanges = (data) => {
   changeTwitterBlueButton(data?.twitterBlueButton); // Twitter Blue Button
   changeNavigationButtonsLabelsHover(data?.navigationButtonsLabelsHover); // Navigation Buttons Labels on Hover
   changeNavigationButtonsLabels(data?.navigationButtonsLabels); // Navigation Buttons Labels
-  changeNavigationCenter(data?.navigationCenter); // Center Navigation
-  changeUnreadCountBadge(data?.unreadCountBadge); // Unread Count Badge
-  changeWriterMode(data?.writerMode); // Writer Mode
+/*   changeNavigationCenter(data?.navigationCenter); // Center Navigation
+  changeUnreadCountBadge(data?.unreadCountBadge); // Unread Count Badge */
+/*   changeWriterMode(data?.writerMode); // Writer Mode
   changeReplyCount(data?.replyCount); // Hide Reply Count
   changeRetweetCount(data?.retweetCount); // Hide Retweet Count
   changeLikeCount(data?.likeCount); // Hide Like Count
@@ -127,9 +99,9 @@ export const injectAllChanges = (data) => {
   changePromotedPosts(data?.removePromotedPosts); // Remove Promoted Posts
   changeWhoToFollow(data?.removeWhoToFollow); // Who to Follow
   changeTopicsToFollow(data?.removeTopicsToFollow); // Topics to Follow
-  changeTimelineTabs(data?.removeTimelineTabs, data?.writerMode); // For you / Following tabs
+  changeTimelineTabs(data?.removeTimelineTabs, data?.writerMode); // For you / Following tabs */
   changeGrowButton(data?.typefullyGrowTab); // Typefully Grow Button
-  changeFollowingTimeline(data?.followingTimeline); // Always Show Following Timeline
+/*   changeFollowingTimeline(data?.followingTimeline); // Always Show Following Timeline
   changeLatestTweets(data?.latestTweets); // Always Show Latest Tweets
   removeTweetFormatting(data?.removeTweetFormatting); // Always Show Latest Tweets
   changeTrendsHomeTimeline(data?.trendsHomeTimeline, data?.writerMode); // Show Trends on Home Timeline
@@ -139,5 +111,5 @@ export const injectAllChanges = (data) => {
   changeTitleNotifications(data?.titleNotifications); // Change Title Notifications
   changeCSSTextEdited(data?.cssTextEdited); // Change User Edited CSS
 
-  hideViewCount(); // Hide View Counts (checks setting internally)
+  hideViewCount(); // Hide View Counts (checks setting internally) */
 };
