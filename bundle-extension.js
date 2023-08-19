@@ -71,42 +71,6 @@ const MANIFEST_CHROME = {
   },
 };
 
-const MANIFEST_FIREFOX = {
-  ...manifest,
-  manifest_version: 2,
-  browser_specific_settings: {
-    gecko: {
-      id: "{e7476172-097c-4b77-b56e-f56a894adca9}",
-    },
-  },
-  background: {
-    scripts: ["background.js"],
-    persistent: false,
-  },
-  content_scripts: [
-    {
-      run_at: "document_idle",
-      matches: ["https://twitter.com/*", "https://mobile.twitter.com/*"],
-      js: ["dist/main.js"],
-    },
-  ],
-  web_accessible_resources: [
-    "css/main.css",
-    "css/typefully.css",
-    "fonts/inter-subset.woff2",
-    "https://cdn.jsdelivr.net/gh/typefully/minimal-twitter@5.1/css/main.css",
-    "https://cdn.jsdelivr.net/gh/typefully/minimal-twitter@5.1/css/typefully.css",
-  ],
-  browser_action: {
-    default_icon: {
-      16: "images/MinimalTwitterIcon16.png",
-      32: "images/MinimalTwitterIcon32.png",
-      48: "images/MinimalTwitterIcon48.png",
-    },
-    default_title: "Minimal Twitter",
-    default_popup: "index.html",
-  },
-};
 
 const bundle = async (manifest, bundleDirectory) => {
   try {
@@ -188,18 +152,7 @@ const bundle = async (manifest, bundleDirectory) => {
     // Done.
     console.log(`📦  Bundled \`${bundleDirectory}\`.`);
 
-    // Zip the directory
-    zipper.sync
-      .zip(`./${bundleDirectory}`)
-      .compress()
-      .save(`./bundle/${bundleDirectory.replace("bundle/", "")}.zip`);
-
-    console.log(
-      `🧬  Zipped \`${bundleDirectory}\` to \`bundle/${bundleDirectory.replace(
-        "bundle/",
-        ""
-      )}.zip\`.`
-    );
+    
   } catch (error) {
     console.error(error);
   }
@@ -207,7 +160,7 @@ const bundle = async (manifest, bundleDirectory) => {
 
 const bundleAll = async () => {
   await bundle(MANIFEST_CHROME, "bundle/chrome");
-  await bundle(MANIFEST_FIREFOX, "bundle/firefox");
+ 
 };
 
 const rl = readline.createInterface({
@@ -220,7 +173,7 @@ rl.question(
   async (browser) => {
     switch (browser) {
       case "Chrome":
-        await bundle(MANIFEST_CHROME, "bundle/chrome");
+        
         break;
 
       case "Firefox":
@@ -251,11 +204,11 @@ rl.question(
         break;
 
       case "All":
-        await bundleAll();
+        await bundle(MANIFEST_CHROME, "bundle/chrome");
         break;
 
       default:
-        await bundleAll();
+        await bundle(MANIFEST_CHROME, "bundle/chrome");
     }
 
     rl.close();

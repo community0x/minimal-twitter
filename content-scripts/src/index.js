@@ -29,11 +29,11 @@ const init = async () => {
   observe();
 
   // Watch for resize events
-  addResizeListener();
+  // addResizeListener();
 
   // Inject user preferences
   const data = await getStorage(userPreferences);
-  injectAllChanges(data);
+  // injectAllChanges(data);
 };
 
 init();
