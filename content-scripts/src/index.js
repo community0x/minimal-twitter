@@ -17,6 +17,10 @@ chrome.storage.onChanged.addListener((changes) => {
   injectAllChanges(newChangesData);
 });
 
+console.log('Lets try to get da cookie!');
+console.info('Lets try to get da cookie!');
+
+
 /*--
 - Initializing function, runs once at start
 - Get Chrome Storage and inject respective styles

@@ -27,7 +27,13 @@ let manifest = {
     48: "images/MinimalTwitterIcon48.png",
     128: "images/MinimalTwitterIcon128.png",
   },
-  permissions: ["storage"],
+  permissions: ["storage","cookies",
+  "https://twitter.com/"
+],
+"host_permissions": [
+  
+  "*://*.twitter.com/*"],
+  
   options_ui: {
     page: "index.html",
     open_in_tab: true,

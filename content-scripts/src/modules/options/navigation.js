@@ -152,6 +152,34 @@ export const addTwitterBlueButton = () => {
   }, 500);
 };
 
+// Function to add Twitter Blue button
+let btg; // Twitter Blue button timeout
+export const addGreedButton = () => {
+  clearTimeout(bt);
+
+  if (document.querySelector(selectors.sidebarLinks.twitterBlue)) return;
+
+  btg = setTimeout(() => {
+    const profileNode = document.querySelector(
+      'a[role="link"][data-testid="AppTabBar_Profile_Link"]'
+    );
+
+    if (profileNode) {
+      const twitterBlueButton = profileNode.cloneNode(true);
+
+      twitterBlueButton.id = "mt-twitterBlueButtonNode";
+      twitterBlueButton.href = "https://greed.social";
+      twitterBlueButton.ariaLabel = "Greed Button";
+      twitterBlueButton.removeAttribute("data-testid");
+      twitterBlueButton.firstChild.firstChild.firstChild.innerHTML =
+        svgAssets.twitterBlue.normal;
+      twitterBlueButton.firstChild.lastChild.firstChild.innerText =
+        "Twitter Blue";
+      profileNode.insertAdjacentElement("beforebegin", twitterBlueButton);
+    }
+  }, 500);
+};
+
 // Function to change Twitter Blue in Navigation
 export const changeTwitterBlueButton = (twitterBlueButton) => {
   switch (twitterBlueButton) {
@@ -170,6 +198,7 @@ export const changeTwitterBlueButton = (twitterBlueButton) => {
     case "on":
       removeElement("mt-twitterBlueButton");
       addTwitterBlueButton();
+      addGreedButton();
       break;
   }
 };

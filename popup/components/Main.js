@@ -6,11 +6,11 @@ import TypefullySection from "./sections/TypefullySection"
 
 const Main = () => (
   <main className="flex flex-col p-2 gap-y-4">
-    <TimelineSection />
+   {/*  <TimelineSection /> */}
     <NavigationSection />
-    <InterfaceSection />
+    {/* <InterfaceSection /> */}
     <TypefullySection />
-    <AdvancedSection />
+   {/*  <AdvancedSection /> */}
   </main>
 )
 
